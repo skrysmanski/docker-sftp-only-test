@@ -21,7 +21,7 @@ HostKey /app/ssh_host_rsa_key
 
 # To disable tunneled clear text passwords, change to no here!
 #PasswordAuthentication yes
-#PermitEmptyPasswords no
+PermitEmptyPasswords yes
 
 # Change to yes to enable challenge-response passwords (beware issues with
 # some PAM modules and threads)
@@ -36,7 +36,7 @@ ChallengeResponseAuthentication no
 # If you just want the PAM account and session checks to run without
 # PAM authentication, then enable this but set PasswordAuthentication
 # and ChallengeResponseAuthentication to 'no'.
-UsePAM yes
+UsePAM no
 
 AllowAgentForwarding no
 #AllowTcpForwarding yes
