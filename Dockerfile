@@ -11,6 +11,8 @@ EXPOSE 22
 
 RUN adduser anonymous --disabled-password --system && passwd -d anonymous
 
+VOLUME ["/app"]
+
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 
