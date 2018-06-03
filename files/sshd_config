@@ -3,69 +3,19 @@
 
 HostKey /app/ssh_host_rsa_key
 
-# Authentication:
-
-#LoginGraceTime 2m
-#PermitRootLogin prohibit-password
-#StrictModes yes
-#MaxAuthTries 6
-#MaxSessions 10
-
-# Expect .ssh/authorized_keys2 to be disregarded by default in future.
-#AuthorizedKeysFile	.ssh/authorized_keys .ssh/authorized_keys2
-
-#AuthorizedPrincipalsFile none
-
-#AuthorizedKeysCommand none
-#AuthorizedKeysCommandUser nobody
-
-# To disable tunneled clear text passwords, change to no here!
-#PasswordAuthentication yes
+# Enable login without password
 PermitEmptyPasswords yes
-
-# Change to yes to enable challenge-response passwords (beware issues with
-# some PAM modules and threads)
 ChallengeResponseAuthentication no
-
-# Set this to 'yes' to enable PAM authentication, account processing,
-# and session processing. If this is enabled, PAM authentication will
-# be allowed through the ChallengeResponseAuthentication and
-# PasswordAuthentication.  Depending on your PAM configuration,
-# PAM authentication via ChallengeResponseAuthentication may bypass
-# the setting of "PermitRootLogin without-password".
-# If you just want the PAM account and session checks to run without
-# PAM authentication, then enable this but set PasswordAuthentication
-# and ChallengeResponseAuthentication to 'no'.
 UsePAM no
 
+# Some other settings
 AllowAgentForwarding no
-#AllowTcpForwarding yes
-#GatewayPorts no
+AllowTcpForwarding no
 X11Forwarding no
-#PermitTTY yes
 PrintMotd no
-#PrintLastLog yes
-#TCPKeepAlive yes
-#UseLogin no
-#PermitUserEnvironment no
-#Compression delayed
-#ClientAliveInterval 0
-#ClientAliveCountMax 3
-#UseDNS no
-#MaxStartups 10:30:100
-#PermitTunnel no
-#ChrootDirectory none
-#VersionAddendum none
 
 # Allow client to pass locale environment variables
 AcceptEnv LANG LC_*
 
 # override default of no subsystems
-Subsystem	sftp	/usr/lib/openssh/sftp-server
-
-# Example of overriding settings on a per-user basis
-#Match User anoncvs
-#	X11Forwarding no
-#	AllowTcpForwarding no
-#	PermitTTY no
-#	ForceCommand cvs server
+Subsystem	sftp	internal-sftp

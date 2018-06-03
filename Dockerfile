@@ -9,7 +9,7 @@ COPY files/sshd_config /etc/ssh/
 RUN apt-get update && apt-get install -y openssh-server
 EXPOSE 22
 
-RUN adduser anonymous --disabled-password --system && passwd -d anonymous && usermod --shell /bin/bash anonymous
+RUN adduser anonymous --disabled-password --system && passwd -d anonymous
 
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
