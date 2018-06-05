@@ -1,12 +1,14 @@
 # This is the sshd server system-wide configuration file.  See
 # sshd_config(5) for more information.
 
-HostKey /app/ssh_host_rsa_key
+HostKey /cert/ssh_host_rsa_key
 
 # Enable login without password
 PermitEmptyPasswords yes
 ChallengeResponseAuthentication no
 UsePAM no
+
+ChrootDirectory /data
 
 # Some other settings
 AllowAgentForwarding no

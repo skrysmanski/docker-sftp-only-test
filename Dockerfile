@@ -2,7 +2,7 @@ FROM krys/ubuntu-base
 
 # Create necessary directories
 # '/run/sshd' is the so call "privilege separation directory"
-RUN mkdir -p /app && mkdir -p /etc/ssh && mkdir -p /run/sshd
+RUN mkdir -p /cert && mkdir -p /data && mkdir -p /etc/ssh && mkdir -p /run/sshd
 
 COPY files/sshd_config /etc/ssh/
 
@@ -11,7 +11,7 @@ EXPOSE 22
 
 RUN adduser anonymous --system && passwd -d anonymous
 
-VOLUME ["/app"]
+VOLUME ["/cert", "/data"]
 
 # Add user for checking permissions on MacOS volumes (see entrypoint script)
 RUN adduser permcheck --system && usermod --shell /bin/bash permcheck

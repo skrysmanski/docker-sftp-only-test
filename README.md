@@ -10,4 +10,4 @@ Proof of concept for a docker container running a SFTP only SSH server.
 
 ## Run
 
-    docker run --rm -ti -p 5000:22 --name sftp-only-test -v $(pwd)/data:/app sfpt-only-test
+    docker run --rm -ti -p 5000:22 --name sftp-only-test -v $(pwd)/cert:/cert -v $(pwd)/data:/data sfpt-only-test
