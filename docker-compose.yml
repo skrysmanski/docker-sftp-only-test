@@ -1,0 +1,10 @@
+version: '3'
+services:
+  sftp-only-test:
+    build: .
+    ports:
+      - "5000:22"
+    volumes:
+      - "./cert:/cert"
+      - "./data:/data"
+
